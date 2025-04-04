@@ -40,7 +40,7 @@ post_estimation<-function(XT,YT,r,N,T,brea,k,SW){
   # construct defactorisation matrix (M_X_bar)
   
   I_T<-diag(T)
-  M_X_bar<-I_T-tcrossprod(X_bar%*%solve(crossprod(X_bar,X_bar)),X_bar)#CCEX
+  M_X_bar<-I_T-tcrossprod(X_bar%*%ginv(crossprod(X_bar,X_bar)),X_bar)#CCEX
   I_N<-diag(N)
   
   # choose (X,W^1*X,..,W^r*X) as Z (IV variables)
