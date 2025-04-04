@@ -20,6 +20,9 @@
 # t_value;
 # p_value;
 
+  library(Matrix)
+  library(MASS)
+  library(pracma)
 
 PGMM-CCEX<-function(XT,YT,N,T,r,SW,lambdamax,lambdamin,grids){
   
