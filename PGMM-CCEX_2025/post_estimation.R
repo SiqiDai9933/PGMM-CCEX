@@ -253,5 +253,5 @@ post_estimation<-function(XT,YT,r,N,T,brea,k,SW){
       R<-matrix(0,1,(k+1))
     }
   }
-  out3<-list(IC=IC,D_hat=dotDDMP_W,se=se,t_value=t_value,p_value=p_value)
+  out3<-list(IC=IC,D_hat=dotDDMP_W,se=se,t_value=t_value,p_value=p_value,brea=brea)
 }
