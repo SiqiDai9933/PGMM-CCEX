@@ -58,9 +58,9 @@ PGMM-CCEX<-function(XT,YT,N,T,r,SW,lambdamax,lambdamin,grids){
   
   theta<-PGMM_ADMM(N,T,QT_W,RT_W,wt,k,lambda,dotD)$theta
   thetak<-t(matrix(theta,(k+1),(T-1)))
-  bn<-matrix(0,k,1)
+  bn<-matrix(0,(k+1),1)
   #count the number of breaks for each regressors
-  for (p in (i:k)){
+  for (p in (1:(k+1))){
     bn[p,]=length(which(thetak[,p]!=0))
   }
   if((sum(bn))==0){
@@ -81,9 +81,9 @@ PGMM-CCEX<-function(XT,YT,N,T,r,SW,lambdamax,lambdamin,grids){
     #the lh-th grid/lambda
     theta<-(PGMM_ADMM(N,T,QT_W,RT_W,wt,k,lambda,dotD))$theta
     thetak<-t(matrix(theta,(k+1),(T-1)))
-    bn<-matrix(0,k,grids)
+    bn<-matrix(0,(k+1),grids)
     #count the number of breaks for each regressors
-    for (p in (i:k)){
+    for (p in (1:(k+1))){
       bn[p,lh]=length(which(thetak[,p]!=0))
     }
     if((sum(bn[,lh])==0)){
