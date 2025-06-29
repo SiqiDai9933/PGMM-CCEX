@@ -24,7 +24,7 @@
   library(MASS)
   library(pracma)
 
-PGMM-CCEX<-function(XT,YT,N,T,r,SW,lambdamax,lambdamin,grids){
+PGMM_CCEX<-function(XT,YT,N,T,r,SW,lambdamax,lambdamin,grids){
   
   source("initial_estimation.R")
   source("PGMM_ADMM.R") 
