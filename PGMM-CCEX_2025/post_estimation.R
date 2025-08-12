@@ -249,10 +249,11 @@ post_estimation<-function(XT,YT,r,N,T,brea,k,SW){
       omega<-Omega[((t-1)*(k+1)+1):(t*(k+1)),((t-1)*(k+1)+1):(t*(k+1))]
       t_value[t,p]=sqrt(pl[t]*N)*beta/(sqrt(R%*%omega%*%t(R)))
       se[t,p]=sqrt(R%*%omega%*%t(R))/sqrt(pl[t]*N)
-      p_value[t,p]<- 2 * pt(-abs(t_value[t,p]),(pl[t]*N-1),lower.tail = FALSE)
+      p_value[t,p]<- 2 * pt(abs(t_value[t,p]),(pl[t]*N-1),lower.tail = FALSE)
       R<-matrix(0,1,(k+1))
     }
   }
   out3<-list(IC=IC,D_hat=dotDDMP_W,se=se,t_value=t_value,p_value=p_value,brea=brea)
 }
+
 
